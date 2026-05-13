@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0d18;
+  --foreground: #f0f4ff;
+  --muted: #8896b3;
+  --card: #13132a;
+  --border: #252550;
+  --neon-cyan: #00f5ff;
+  --neon-purple: #bf5af2;
+  --neon-pink: #ff2d78;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-pink: var(--neon-pink);
+  --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
+html, body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f5ff, #bf5af2);
+  border-radius: 6px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 245, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Neon utility classes */
+@utility text-neon-cyan {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.6), 0 0 20px rgba(0, 245, 255, 0.3);
+}
+@utility text-neon-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(191, 90, 242, 0.6), 0 0 20px rgba(191, 90, 242, 0.3);
+}
+@utility text-neon-pink {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 45, 120, 0.6), 0 0 20px rgba(255, 45, 120, 0.3);
+}
+
+@utility glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4), 0 0 40px rgba(0, 245, 255, 0.2);
+}
+@utility glow-purple {
+  box-shadow: 0 0 20px rgba(191, 90, 242, 0.4), 0 0 40px rgba(191, 90, 242, 0.2);
+}
+@utility glow-pink {
+  box-shadow: 0 0 20px rgba(255, 45, 120, 0.4), 0 0 40px rgba(255, 45, 120, 0.2);
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animated-gradient {
+  background: linear-gradient(120deg, #0a0a0f, #1a0b2e, #0a0a0f, #0b1e2e, #0a0a0f);
+  background-size: 300% 300%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 245, 255, 0.4), 0 0 30px rgba(0, 245, 255, 0.2); }
+  50%      { box-shadow: 0 0 25px rgba(0, 245, 255, 0.7), 0 0 50px rgba(0, 245, 255, 0.4); }
+}
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Sparkle */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50%      { opacity: 1; transform: scale(1); }
+}
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
 }

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Read(//c/Users/AhmadN/.claude/projects/c--Users-AhmadN-OneDrive-Desktop-Jordan-s-site-my-portfolio/memory/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\AhmadN\\.claude\\projects\\c--Users-AhmadN-OneDrive-Desktop-Jordan-s-site-my-portfolio\\memory"
+    ]
+  }
+}
