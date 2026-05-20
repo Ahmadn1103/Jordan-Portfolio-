@@ -6,7 +6,7 @@ import { useState, type ReactNode } from "react";
 
 type GlowingCardProps = Omit<HTMLMotionProps<"div">, "children"> & {
   children: ReactNode;
-  glowColor?: "cyan" | "purple" | "pink" | "orange";
+  glowColor?: "cyan" | "purple" | "pink" | "orange" | "green";
   className?: string;
 };
 
@@ -15,6 +15,7 @@ const glowMap = {
   purple: "191, 90, 242",
   pink: "255, 45, 120",
   orange: "255, 140, 0",
+  green: "74, 222, 128",
 };
 
 export function GlowingCard({
