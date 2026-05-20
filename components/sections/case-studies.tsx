@@ -31,7 +31,7 @@ export function CaseStudies() {
                   <CaseBlock label="Result" body={cs.result} />
                 </div>
 
-                <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
+                <div className="mt-8 grid grid-cols-1 gap-4 border-t border-border pt-6 sm:grid-cols-3">
                   {cs.metrics.map((m, mi) => {
                     const colors = [
                       { value: "text-neon-cyan", badge: "border-neon-cyan/60 bg-neon-cyan/15 text-neon-cyan" },
@@ -40,10 +40,10 @@ export function CaseStudies() {
                     ][mi % 3];
                     return (
                       <div key={m.label} className={`rounded-xl border p-4 ${colors.badge}`}>
-                        <p className={`font-sans text-2xl font-bold md:text-3xl ${colors.value}`}>
+                        <p className={`font-sans text-xl font-bold sm:text-2xl md:text-3xl ${colors.value}`}>
                           {m.value}
                         </p>
-                        <span className={`mt-3 inline-block rounded-full border px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-white ${colors.badge}`}>
+                        <span className={`mt-3 inline-block rounded-full border px-2 py-1 font-mono text-[10px] font-bold uppercase leading-tight tracking-wider text-white sm:px-3 sm:text-xs sm:tracking-widest ${colors.badge}`}>
                           {m.label}
                         </span>
                       </div>

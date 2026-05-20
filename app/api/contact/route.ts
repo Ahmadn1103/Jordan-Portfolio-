@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         <tr>
           <td class="email-header" style="background:#0d0d18;padding:36px 40px;text-align:center;border-bottom:1px solid #252550;">
             <div style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#00f5ff;margin-right:10px;vertical-align:middle;"></div>
-            <span class="text-white" style="font-size:22px;font-weight:700;color:#f0f4ff;letter-spacing:-0.5px;vertical-align:middle;">Derek<span class="text-cyan" style="color:#00f5ff;">.</span></span>
+            <span class="text-white" style="font-size:22px;font-weight:700;color:#f0f4ff;letter-spacing:-0.5px;vertical-align:middle;">Derek Campbell<span class="text-cyan" style="color:#00f5ff;">.</span></span>
             <p class="text-white" style="margin:12px 0 0;font-family:monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#ffffff;">New Portfolio Message</p>
           </td>
         </tr>

@@ -49,7 +49,7 @@ export function Hero() {
           className="text-6xl font-bold tracking-tighter sm:text-7xl md:text-8xl"
         >
           <span className="bg-gradient-to-r from-neon-cyan via-foreground to-neon-purple bg-clip-text text-transparent">
-            Derek
+            Derek Campbell
           </span>
         </motion.h1>
 

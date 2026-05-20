@@ -13,8 +13,8 @@ export function ResumeTimeline() {
             Career Path
           </p>
           <a
-            href="/Derek-Campbell-Resume.docx"
-            download="Derek Campbell Resume.docx"
+            href="/Derek-Campbell-Resume.pdf"
+            download="Derek Campbell Resume.pdf"
             className="pulse-glow inline-flex items-center gap-2 rounded-xl border border-neon-cyan/60 bg-neon-cyan/15 px-5 py-2.5 text-sm font-medium text-neon-cyan transition-colors hover:bg-neon-cyan/25"
           >
             <Download size={16} />
@@ -26,19 +26,21 @@ export function ResumeTimeline() {
           <Column title="Experience">
             {experience.map((e, i) => (
               <TimelineNode key={`${e.role}-${e.company}`} index={i} last={i === experience.length - 1}>
-                <p className="font-mono text-xs uppercase tracking-widest text-neon-purple">
-                  {e.period}
-                </p>
-                <h3 className="mt-1 text-lg font-semibold">{e.role}</h3>
-                <p className="text-sm text-muted">{e.company}</p>
-                <ul className="mt-3 space-y-1.5 text-sm text-foreground/80">
-                  {e.bullets.map((b) => (
-                    <li key={b} className="relative pl-4">
-                      <span className="absolute left-0 top-2 inline-block h-1 w-1 rounded-full bg-neon-cyan" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
+                  <p className="font-mono text-sm font-semibold uppercase tracking-widest text-white">
+                    {e.period}
+                  </p>
+                  <h3 className="mt-1 text-lg font-semibold">{e.role}</h3>
+                  <p className="text-sm text-muted">{e.company}</p>
+                  <ul className="mt-3 space-y-1.5 text-sm text-foreground/80">
+                    {e.bullets.map((b) => (
+                      <li key={b} className="relative pl-4">
+                        <span className="absolute left-0 top-2 inline-block h-1 w-1 rounded-full bg-neon-cyan" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </TimelineNode>
             ))}
           </Column>

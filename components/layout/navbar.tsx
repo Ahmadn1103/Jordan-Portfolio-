@@ -67,7 +67,7 @@ export function Navbar() {
           <Link href="/" className="group flex items-center gap-2">
             <span className="relative inline-block h-3 w-3 rounded-full bg-neon-cyan shadow-[0_0_12px_rgba(0,245,255,0.9)]" />
             <span className="text-xl font-bold tracking-tight">
-              Derek
+              Derek Campbell
               <span className="text-neon-cyan group-hover:text-neon-purple transition-colors">.</span>
             </span>
           </Link>

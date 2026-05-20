@@ -17,8 +17,14 @@ export function AboutBio() {
           className="relative mx-auto h-72 w-72 md:mx-0"
         >
           <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-neon-cyan via-neon-purple to-neon-pink opacity-70 blur-2xl" />
-          <div className="relative flex h-full w-full items-center justify-center rounded-full border-2 border-neon-cyan/40 bg-card text-7xl font-bold text-neon-cyan">
-            D
+          <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-neon-cyan/40">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Headshot Pic.jpeg"
+              alt="Derek Campbell"
+              className="h-full w-full"
+              style={{ objectFit: "cover", objectPosition: "center 15%", width: "100%", height: "100%" }}
+            />
           </div>
         </motion.div>
 
@@ -32,7 +38,7 @@ export function AboutBio() {
             About
           </p>
           <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
-            Hey, I&apos;m Derek.
+            Hey, I&apos;m Derek Campbell.
           </h2>
           <GlowingCard glowColor="purple" className="p-7">
             <div className="space-y-4 text-base leading-relaxed text-foreground/90">
@@ -42,7 +48,7 @@ export function AboutBio() {
                 support — focused on keeping systems running reliably.
               </p>
               <p>
-                I hold a B.A. in Computer Technology from Bowie State University
+                I hold a Bachelor's Degree in Computer Technology from Bowie State University
                 and have worked across infrastructure, cloud, and helpdesk
                 environments. I care about uptime, clean documentation, and
                 solving the problem before it pages someone.

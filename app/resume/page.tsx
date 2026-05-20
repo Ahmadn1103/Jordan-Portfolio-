@@ -18,6 +18,49 @@ export default function ResumePage() {
           />
         </div>
       </section>
+
+      {/* PDF embed */}
+      <section className="pb-12">
+        <div className="mx-auto w-full max-w-[860px] px-6">
+          {/* Decorative glow ring */}
+          <div className="relative">
+            <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-neon-cyan/30 via-neon-purple/20 to-transparent blur-sm" />
+            <div className="relative overflow-hidden rounded-2xl border border-neon-cyan/25 shadow-[0_0_60px_rgba(0,245,255,0.08)]">
+              {/* Custom header bar */}
+              <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.04] px-5 py-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-neon-cyan shadow-[0_0_8px_rgba(0,245,255,0.9)]" />
+                  <span className="font-mono text-xs uppercase tracking-widest text-white/60">
+                    Derek-Campbell-Resume.pdf
+                  </span>
+                </div>
+                <a
+                  href="/Derek-Campbell-Resume.pdf"
+                  download="Derek Campbell Resume.pdf"
+                  className="font-mono text-xs uppercase tracking-widest text-neon-cyan hover:text-white transition-colors"
+                >
+                  Download
+                </a>
+              </div>
+              {/* PDF — full page at normal scale */}
+              <div style={{ overflow: "hidden" }}>
+                <iframe
+                  src="/Derek-Campbell-Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+                  title="Derek Campbell Resume"
+                  style={{
+                    width: "calc(100% + 10px)",
+                    height: "1045px",
+                    border: "none",
+                    display: "block",
+                    background: "white",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ResumeTimeline />
     </>
   );

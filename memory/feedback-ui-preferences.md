@@ -47,3 +47,30 @@ The navbar should be a floating `rounded-2xl` pill with `backdrop-blur-2xl bg-wh
 **Why:** User approved this after rejecting a plain rectangle navbar.
 
 **How to apply:** Keep the floating pill shape. Never revert to a full-width rectangle navbar.
+
+---
+
+## Particle background removed — use static gradients
+The animated canvas particle background was replaced with a simple static CSS radial gradient `<div>` in `components/ui/particles-bg.tsx`.
+
+**Why:** User found the moving particles too distracting.
+
+**How to apply:** Never re-add animated particles. Use static radial gradients if background decoration is needed.
+
+---
+
+## Experience cards have subtle card background
+Resume timeline experience entries are wrapped in `rounded-lg border border-white/10 bg-white/[0.04] p-4` — no backdrop blur.
+
+**Why:** User asked for something simple but visible. Earlier versions with `backdrop-blur` were rejected as too distracting.
+
+**How to apply:** Keep the minimal card style on experience entries.
+
+---
+
+## Profile photo position is fixed inline
+The about section headshot uses `style={{ objectFit: "cover", objectPosition: "center 15%" }}` hardcoded inline — not a Tailwind utility — so it renders identically on all devices.
+
+**Why:** User wanted a fixed position consistent across all screen sizes.
+
+**How to apply:** Never change object-position to a responsive or Tailwind class. Keep it as an inline style.
