@@ -1,5 +1,6 @@
 import { ResumeTimeline } from "@/components/sections/resume-timeline";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { PdfEmbed } from "@/components/ui/pdf-embed";
 
 export const metadata = {
   title: "Resume — Derek Campbell",
@@ -42,20 +43,8 @@ export default function ResumePage() {
                   Download
                 </a>
               </div>
-              {/* PDF — full page at normal scale */}
-              <div style={{ overflow: "hidden" }}>
-                <iframe
-                  src="/Derek-Campbell-Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
-                  title="Derek Campbell Resume"
-                  style={{
-                    width: "calc(100% + 10px)",
-                    height: "1045px",
-                    border: "none",
-                    display: "block",
-                    background: "white",
-                  }}
-                />
-              </div>
+              {/* PDF — scales to fit on mobile, full size on desktop */}
+              <PdfEmbed />
             </div>
           </div>
         </div>
