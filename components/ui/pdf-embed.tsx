@@ -2,44 +2,46 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const PDF_WIDTH = 816;
+const PDF_HEIGHT = 1045;
+
 export function PdfEmbed() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState<number | null>(null);
 
-  // PDF renders at 816px wide (letter). Scale it down to fit the container on mobile.
   useEffect(() => {
-    const pdfNativeWidth = 816;
     const update = () => {
       if (!wrapperRef.current) return;
-      const available = wrapperRef.current.clientWidth;
-      setScale(available < pdfNativeWidth ? available / pdfNativeWidth : 1);
+      const w = wrapperRef.current.getBoundingClientRect().width;
+      setScale(w / PDF_WIDTH);
     };
     update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    const ro = new ResizeObserver(update);
+    if (wrapperRef.current) ro.observe(wrapperRef.current);
+    return () => ro.disconnect();
   }, []);
 
-  const pdfNativeWidth = 816;
-  const pdfNativeHeight = 1045;
-
   return (
-    <div
-      ref={wrapperRef}
-      style={{ width: "100%", height: pdfNativeHeight * scale, overflow: "hidden", background: "white" }}
-    >
-      <iframe
-        src="/Derek-Campbell-Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
-        title="Derek Campbell Resume"
-        style={{
-          width: pdfNativeWidth,
-          height: pdfNativeHeight,
-          border: "none",
-          display: "block",
-          transformOrigin: "top left",
-          transform: `scale(${scale})`,
-          background: "white",
-        }}
-      />
+    <div ref={wrapperRef} style={{ width: "100%", background: "white" }}>
+      {scale !== null && (
+        <div style={{ height: PDF_HEIGHT * scale, overflow: "hidden", position: "relative" }}>
+          <iframe
+            src="/Derek-Campbell-Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+            title="Derek Campbell Resume"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: PDF_WIDTH,
+              height: PDF_HEIGHT,
+              border: "none",
+              transformOrigin: "top left",
+              transform: `scale(${scale})`,
+              background: "white",
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
